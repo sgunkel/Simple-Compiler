@@ -1,0 +1,66 @@
+Seth Gunkel
+
+
+Expression Tree Diagram:
+e -> *empty*
+expr := number |
+	string |
+	bool   |
+	id     |
+	binary |
+	unary  |
+	declarations
+
+declarations = 'let' id '=' expr
+
+unary := unaryOP expr
+unaryOP := '-' | e
+
+binary := expr op expr
+op := '+' | '-' | '*' | '/' | '==' | '!='
+
+id := (letter | '_') (letter | digit | '_')*
+letter := ([a-z] | [A-Z])
+
+bool := 'true' | 'false'
+
+string := '"' char* '"' | "'" char* "'"
+char := *any printable character*
+
+number := digits	    |
+	  digits '.' digits |
+	  '.' digits
+digits := digit*
+digit := [0-9]
+
+
+Number:
+  Any numeric number, whole or decimal.
+
+String:
+  Any character(s) you can use on a keyboard
+  surrounded by either double or single quotes.
+
+Bool:
+  Either true or false.
+
+ID:
+  Must begin with a letter or '_' and can have other
+  characters or numbers after.
+
+Binary:
+  Two expressions with an operator between them.
+
+Unary:
+  An expression (usually a number) followed by a
+  unary operator like not (!) or negation (-).
+
+Note that both binary and unary operations only work
+  if the object(s) have those operators defined.
+
+Declaration:
+  Must begin with the keyword "let" followed by a
+  name, the assignment sign ('='), and an
+  expression. This will automatically assign a type
+  based on the right hand side's type.
+
